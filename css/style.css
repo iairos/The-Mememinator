@@ -1,0 +1,46 @@
+body {
+  /* color: whitesmoke; */
+  /* overflow-x: hidden; */
+  padding: 0 40px;
+}
+
+/* button {
+  color: whitesmoke;
+  border: 0;
+  border-radius: 0.2em;
+  background-color: #222;
+  padding: 6px 10px;
+  margin: 2px;
+  cursor: pointer;
+} */
+
+/* button:hover {
+  color: deeppink;
+} */
+.img-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .btn-remove {
+  float: right;
+} */
+.img-preview {
+  background-color: white;
+  color: darkviolet;
+  width: 18%;
+  margin: 0.5em;
+  border: 1px solid lightgray;
+  border-radius: 0.2em;
+  text-align: center;
+  padding: 5px;
+}
+/* 
+.img-preview .btn-remove {
+  float: right;
+} */
+
+.img-preview img {
+  max-width: 100%;
+  cursor: pointer;
+  /* max-height: 100%; */
+}
