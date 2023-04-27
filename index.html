@@ -11,11 +11,42 @@
     <header>
       <h1>Mememinator</h1>
       <h2>A Meme Generator</h2>
+      <div class="inputs">
+        <input
+          type="file"
+          class="file-input btn"
+          name="image"
+          onchange="onImgInput(event)"
+        />
+
+        <button class="btn" onclick="onUploadImg()">
+          Upload Image from Canvas
+        </button>
+
+        <a
+          href="#"
+          class="btn"
+          onclick="downloadImg(this)"
+          download="my-img.jpg"
+          >Download as jpeg</a
+        >
+      </div>
+
+      <div class="canvas-container">
+        <canvas
+          id="my-canvas"
+          width="450"
+          height="400"
+          style="outline: 1px solid green"
+        ></canvas>
+      </div>
 
       <!-- img container -->
       <section class="img-container"></section>
     </header>
     <script src="js/service/storage.js"></script>
+    <script src="js/upload-from-local.js"></script>
+    <script src="js/sharing-on-facebook.js"></script>
     <script src="js/service/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
   </body>

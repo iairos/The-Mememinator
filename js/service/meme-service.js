@@ -27,6 +27,8 @@ function creatImgCard(id, alt) {
   const img = {
     id,
     alt,
+    keywords: alt.replaceAll(" ", ",").split(),
+    url: `img/${id}.jpg`,
   };
   return img;
 }
