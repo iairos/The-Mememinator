@@ -106,3 +106,44 @@ function getImgCards() {
   const imgCards = loadFromStorage(IMG_CARD_KEY);
   return imgCards;
 }
+
+function searchImages(letters, images) {
+  return images.filter((image) => {
+    const keywords = image.keywords.join("").toLowerCase();
+    return keywords.includes(letters.toLowerCase());
+  });
+}
+
+function setTxt(value) {
+  gMeme.lines[gMeme.selectedLineIdx].txt = value;
+  _saveMemeToStorage();
+}
+function setColor(value) {
+  gMeme.lines[gMeme.selectedLineIdx].color = value;
+  _saveMemeToStorage();
+}
+
+function decreaseSize(value) {
+  gMeme.lines[gMeme.selectedLineIdx].size -= 1;
+  _saveMemeToStorage();
+}
+function increaseSize(value) {
+  gMeme.lines[gMeme.selectedLineIdx].size += 1;
+  _saveMemeToStorage();
+}
+
+function changeLine() {
+  gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % 2;
+  _saveMemeToStorage();
+}
+
+function addRow() {
+  gMeme.lines.push({ ...gMeme.lines[gMeme.selectedLineIdx] });
+  _saveMemeToStorage();
+}
+
+function deleteRow() {
+  gMeme.lines = [gMeme.lines[(gMeme.selectedLineIdx + 1) % 2]];
+  gMeme.selectedLineIdx = 0;
+  _saveMemeToStorage();
+}

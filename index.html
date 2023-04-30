@@ -6,62 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mememinator</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/0d20af0693.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body onload="onInit()">
     <header>
-      <h1>Mememinator</h1>
+      <h1>The Mememinator</h1>
       <h2>A Meme Generator</h2>
     </header>
-    <section class="inputs">
-      <article class="file-input-container">
-        <label for="file">Import Image</label>
-        <input
-          type="file"
-          id="file"
-          class="file-input btn"
-          name="image"
-          onchange="onImgInput(event)"
-        />
-      </article>
+    <div class="wrapper">
+      <div class="gallery-wrapper">
+        <section class="inputs">
+          <article class="file-input-container">
+            <label for="file">Import Image</label>
+            <input
+              type="file"
+              id="file"
+              class="file-input btn"
+              name="image"
+              onchange="onImgInput(event)"
+            />
+          </article>
+        </section>
 
-      <article class="upload-btn-container hide">
-        <button class="btn" onclick="onUploadImg()">
-          Upload Image from Canvas
-        </button>
-      </article>
+        <article class="searchBox">
+          <label for="site-search"></label>
+          <input
+            oninput="renderTemplates(event)"
+            type="search"
+            id="site-search"
+            placeholder="Search For An Image"
+          />
+        </article>
+        <section class="img-container"></section>
+      </div>
+      <div class="editor-wrapper" style="display: none">
+        <!-- canvas -->
+        <div class="canvas-container">
+          <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
 
-      <article class="download-img-container hide">
-        <a
-          href="#"
-          class="btn download-img"
-          onclick="downloadImg(this)"
-          download="my-img.jpg"
-          >Download as jpeg</a
-        >
-      </article>
-      <article class="searchBox">
-        <input type="search" name="img-search" id="img-search" />
-      </article>
-    </section>
+        <!-- editor -->
+        <section class="editor-container">
+          <article class="download-img-container btn-preview">
+            <a
+              href="#"
+              class="btn download-img"
+              onclick="downloadImg(this)"
+              download="my-img.jpg"
+              ><i class="fa-solid fa-download fa-2xl" style="color: #000000"></i
+            ></a>
+          </article>
+          <article class="txt-input-holder btn-preview">
+            <input
+              type="text"
+              class="meme-txt"
+              oninput="onDisplayTxt(event);"
+              placeholder="Type in some text"
+            />
+          </article>
+        </section>
+      </div>
 
-    <!-- canvas -->
-    <div class="canvas-container">
-      <canvas class="hide" id="my-canvas" width="500" height="500"></canvas>
+      <!-- gallery container -->
     </div>
-
-    <!-- editor -->
-    <section class="editor-container">
-      <article class="txt-input-holder" hidden>
-        <input
-          class="meme-txt"
-          onchange="onDisplayTxt();"
-          placeholder="Type in some text"
-        />
-      </article>
-    </section>
-
-    <!-- gallery container -->
-    <section class="img-container"></section>
 
     <script src="js/service/storage.js"></script>
     <script src="js/service/meme-gallery-service.js"></script>
